@@ -11,6 +11,9 @@ class SacTicket(models.Model):
 
     name = fields.Char()
 
+    partner_id = fields.Many2one(
+        comodel_name='res.partner',
+    )
     partner_name = fields.Char(
         string="Nome",
     )
@@ -23,16 +26,22 @@ class SacTicket(models.Model):
     partner_birthday = fields.Date()
     partner_phone = fields.Char()
     partner_email = fields.Char()
-
     mensagem = fields.Text()
-
     create_date = fields.Date(
         readonly=True,
     )
-
     state_id = fields.Many2one(
         'res.country.state',
+        domain=[
+            ('country_id.code', '=', 'BR'),
+        ]
     )
-
     city = fields.Char()
+
+    @api.onchange('partner_id')
+    def onchange_method(self):
+        if self.partner_id:
+            self.partner_name = self.partner_id.name
+            self.partner_phone = self.partner_id.phone
+            self.partner_email = self.partner_id.email
 
