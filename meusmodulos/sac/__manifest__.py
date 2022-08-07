@@ -12,6 +12,7 @@
     ],
     'data': [
         'security/sac_ticket.xml',
+        'views/sac_menu.xml',
         'views/sac_ticket.xml',
     ],
     'demo': [

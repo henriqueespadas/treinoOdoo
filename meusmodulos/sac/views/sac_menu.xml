@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2022 Eva Alexandrina Tecnologia
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <data>
+        <record model="ir.ui.menu" id="sac_main_menu">
+            <field name="name">Sac</field>
+            <field name="sequence" eval="70"/>
+        </record>
+    </data>
+</odoo>
