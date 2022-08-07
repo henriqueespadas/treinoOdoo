@@ -9,6 +9,7 @@
     'license': 'AGPL-3',
     'author': 'Espadas,Odoo Community Association (OCA)',
     'depends': [
+        'mail',
     ],
     'data': [
         'security/sac_motivo.xml',

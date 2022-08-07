@@ -9,8 +9,11 @@ class SacTicket(models.Model):
     _name = "sac.ticket"
     _description = "Sac Ticket"  # TODO
 
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+
     name = fields.Char(
         default=lambda self: _('New'),
+        readyonly=True
     )
 
     partner_id = fields.Many2one(
