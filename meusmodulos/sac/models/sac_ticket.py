@@ -30,4 +30,9 @@ class SacTicket(models.Model):
         readonly=True,
     )
 
+    state_id = fields.Many2one(
+        'res.country.state',
+    )
+
+    city = fields.Char()
 

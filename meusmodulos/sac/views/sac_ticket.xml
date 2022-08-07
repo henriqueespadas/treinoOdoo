@@ -23,6 +23,8 @@
                             <field name="partner_birthday"/>
                             <field name="partner_phone"/>
                             <field name="partner_email"/>
+                            <field name="state_id"/>
+                            <field name="city"/>
                         </group>
                         <group>
                             <field name="create_date"/>
