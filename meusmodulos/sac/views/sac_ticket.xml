@@ -10,7 +10,7 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <!-- TODO -->
+                    <button name="button_send_sms" string="SMS" type="object"/>
                 </header>
                 <sheet>
                     <h1>

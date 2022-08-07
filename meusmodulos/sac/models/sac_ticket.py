@@ -5,7 +5,6 @@ from odoo import _, api, fields, models
 
 
 class SacTicket(models.Model):
-
     _name = "sac.ticket"
     _description = "Sac Ticket"  # TODO
 
@@ -55,6 +54,16 @@ class SacTicket(models.Model):
 
     @api.model
     def create(self, vals):
-        vals['name'] = self.env['ir.sequence'].next_by_code('sac') or ('New')
+        vals['name'] = self.env['ir.sequence'].next_by_code('sac') or _('New')
         return super(SacTicket, self).create(vals)
+
+    def button_send_sms(self):
+        for record in self:
+            sms_message = 'N. do Chamado {}'.format(record.name)
+            if record.partner_phone:
+                record.message_post_send_sms(
+                    sms_message=sms_message,
+                    numbers=[record.partner_phone],
+                )
+
 
