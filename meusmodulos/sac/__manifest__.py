@@ -11,11 +11,15 @@
     'depends': [
     ],
     'data': [
+        'security/sac_motivo.xml',
         'security/sac_ticket.xml',
+        'data/sac_sequence.xml',
         'views/sac_menu.xml',
+        'views/sac_motivo.xml',
         'views/sac_ticket.xml',
     ],
     'demo': [
+        'demo/sac_motivo.xml',
         'demo/sac_ticket.xml',
     ],
 }

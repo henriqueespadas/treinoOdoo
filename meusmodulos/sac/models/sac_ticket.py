@@ -9,7 +9,9 @@ class SacTicket(models.Model):
     _name = "sac.ticket"
     _description = "Sac Ticket"  # TODO
 
-    name = fields.Char()
+    name = fields.Char(
+        default=lambda self: _('New'),
+    )
 
     partner_id = fields.Many2one(
         comodel_name='res.partner',
@@ -37,6 +39,9 @@ class SacTicket(models.Model):
         ]
     )
     city = fields.Char()
+    motivo_id = fields.Many2one(
+        'sac.motivo'
+    )
 
     @api.onchange('partner_id')
     def onchange_method(self):
@@ -44,4 +49,9 @@ class SacTicket(models.Model):
             self.partner_name = self.partner_id.name
             self.partner_phone = self.partner_id.phone
             self.partner_email = self.partner_id.email
+
+    @api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].next_by_code('sac') or ('New')
+        return super(SacTicket, self).create(vals)
 

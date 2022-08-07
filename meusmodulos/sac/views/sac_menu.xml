@@ -8,5 +8,11 @@
             <field name="name">Sac</field>
             <field name="sequence" eval="70"/>
         </record>
+        <record model="ir.ui.menu" id="sac_menu_config">
+            <field name="name">Configuracao</field>
+            <field name="parent_id" ref="sac_main_menu"/>
+            <field name="sequence" eval="999"/>
+        </record>
+
     </data>
 </odoo>
